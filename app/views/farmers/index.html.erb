@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Farmers</h1>
+
+<div id="farmers">
+    <% @farmers.each do |farmer| %>
+      <%= render farmer %>
+      <p>
+        <%= link_to "En savoir plus", farmer %>
+      </p>
+    <% end %>
+</div>
+
+<% if user_signed_in? && current_user.role != "Eleveur" %>
+  <%= link_to "Ouvrir un magasin", new_farmer_path %>
+<% else %>
+  <%= link_to "Retourner", vendeur_path %>
+<% end %>

@@ -1,0 +1,18 @@
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    <%= link_to "Chicken app", root_path, class:"navbar-brand" %>
+    <%= link_to "Page d'accueil", root_path, class:"navbar-brand" %>
+    <%= link_to "A propos", root_path, class:"navbar-brand" %>
+    <% if current_user %>
+        <%= button_to("Deconnexion", destroy_user_session_path, type: "button", method: :delete, class:"btn btn-sm btn-outline-secondary") %>
+        <%= current_user.last_name %>
+    <% else %>
+        <%= link_to "Connexion", new_user_session_path, class:"btn btn-sm btn-outline-secondary" %>
+        <%= link_to "Inscription", new_user_registration_path, class:"btn btn-sm btn-outline-secondary" %>
+    <% end %>
+    <form class="d-flex input-group" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-sm btn-outline-success" type="submit">Recherche</button>
+    </form>
+  </div>
+</nav>

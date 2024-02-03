@@ -1,0 +1,32 @@
+<%= form_with(model: farmer) do |form| %>
+  <% if farmer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(farmer.errors.count, "error") %> prohibited this farmer from being saved:</h2>
+
+      <ul>
+        <% farmer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "Nom du magasin", style: "display: block" %><br/>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :adress, "Adresse du magasin", style: "display: block" %><br/>
+    <%= form.text_field :adress %>
+  </div>
+
+  <div>
+    <%= form.label :description, "Description du magasin", style: "display: block" %><br/>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Valider" %>
+  </div>
+<% end %>

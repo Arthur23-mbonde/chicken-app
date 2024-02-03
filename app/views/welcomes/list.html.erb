@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+    <% if user.role == "Client" %>
+        <%= user.last_name %>
+        <%= user.first_name %>
+    <% end %>
+<% end %>

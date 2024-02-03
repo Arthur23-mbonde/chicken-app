@@ -1,0 +1,8 @@
+<div>
+    <p><b>Magasin </b><%= current_user.farmer.name %></p>
+    <p><b>Adresse : </b><%= current_user.farmer.adress %></p>
+    <p><b>Details : </b><%= current_user.farmer.description %></p>
+</div>
+
+<p><%= link_to "Edit this farmer", edit_farmer_path(@farmers) %></p>
+<p><%= button_to "Destroy this farmer", @farmer, method: :delete %></p>

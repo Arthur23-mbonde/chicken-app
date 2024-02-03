@@ -1,0 +1,39 @@
+<div id="<%= dom_id product %>">
+  <p>
+    <i><%= product.name %></i>
+    <% product.pictures.each do |picture| %>
+      <%= image_tag(picture, style: "object-fit: contain; width:50px; height:50px;") %><strong> </strong>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong>Current price:</strong>
+    <%= product.current_price %>
+  </p>
+
+  <p>
+    <strong>Disponibility:</strong>
+    <%= product.disponibility %>
+  </p>
+
+  <p>
+    <strong>Evaluation:</strong>
+    <%= product.evaluation %>
+  </p>
+
+  <p>
+    <strong>Race:</strong>
+    <%= product.race_id %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= product.category_id %>
+  </p>
+
+</div>
