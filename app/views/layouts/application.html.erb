@@ -24,21 +24,22 @@
 
         <div style="width:25%;height:100%;background-color:gray;color:white;">
             <% if user_signed_in? && current_user.role == "Eleveur" %>
-                <%= link_to "Mon profile", vendeur_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
-                <%= link_to "Magasins", farmers_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
-                <%= link_to "Clients", list_path, class:"btn btn-sm-2 btn-ouline-secondary" %>
+              <%= link_to "Mon profile", vendeur_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
+              <%= link_to "Magasins", farmers_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
+              <%= link_to "Produits disponibles", products_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
+              <%= link_to "Clients", list_path, class:"btn btn-sm-2 btn-ouline-secondary" %>
             <% elsif user_signed_in? && current_user.role == "Client" %>
-                <%= link_to "Mon profile", client_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
-                <%= link_to "Magasins", farmers_path, class:"btn btn-sm-2 btn-ouline-secondary" %>
+              <%= link_to "Mon profile", client_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
+              <%= link_to "Produits disponibles", products_path, class:"btn btn-sm-2 btn-ouline-secondary" %><br/>
+              <%= link_to "Magasins", farmers_path, class:"btn btn-sm-2 btn-ouline-secondary" %>
             <% else %>
-
+              
             <% end %>
         </div>
 
       </div>
     </div>
-
-
+   
     <div class="container">
       <%= yield %>
     </div>
