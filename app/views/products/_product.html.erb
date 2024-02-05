@@ -1,39 +1,40 @@
 <div id="<%= dom_id product %>">
-  <p>
-    <i><%= product.name %></i>
-    <% product.pictures.each do |picture| %>
-      <%= image_tag(picture, style: "object-fit: contain; width:50px; height:50px;") %><strong> </strong>
-    <% end %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
+  <div style="display:flex;justify-content:space-between;margin: 0em 5em;">
+    <div>
+      <% product.pictures.each do |picture| %>
+        <%= image_tag(picture, style: "object-fit: contain; width:50px; height:50px;") %><strong> </strong>
+      <% end %><br/>
+      <i><%= product.name %></i>
+    </div>
 
-  <p>
-    <strong>Current price:</strong>
-    <%= product.current_price %>
-  </p>
+    <div>
+      <strong>Description</strong><br/>
+      <%= product.description %>
+    </div><pre> </pre>
 
-  <p>
-    <strong>Disponibility:</strong>
-    <%= product.disponibility %>
-  </p>
+    <div>
+      <strong>Prix courant</strong><br/>
+      <%= product.current_price %>
+    </div><pre> </pre>
 
-  <p>
-    <strong>Evaluation:</strong>
-    <%= product.evaluation %>
-  </p>
+    <div>
+      <strong>Disponibility</strong><br/>
+      <%= product.disponibility %>
+    </div><pre> </pre>
 
-  <p>
-    <strong>Race:</strong>
-    <%= product.race_id %>
-  </p>
+    <div>
+      <strong>Evaluation</strong><br/>
+      <%= product.evaluation %>
+    </div><pre> </pre>
 
-  <p>
-    <strong>Category:</strong>
-    <%= product.category_id %>
-  </p>
+    <div>
+      <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: product.id %>
+        <%= f.number_field :rate, value: 0, min: 1 %><br/>
+        <%= f.submit "Ajouter au panier" %>
+      <% end %>
+    </div>
+  </div>
 
-</div>
+</div><br/>
