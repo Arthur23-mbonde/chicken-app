@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'chat_rooms/index'
 
   get 'cart', to: 'cart#show'
   post 'cart/add'
@@ -20,9 +21,22 @@ Rails.application.routes.draw do
   resources :categories
   resources :races
   resources :farmers
+  resources :chat_rooms do
+    resources :messages
+  end
 
   devise_for :users
   get 'welcomes/index'
+
+  # For turbochat
+  devise_scope :user do
+    get 'users', to: 'devise/sessions#new'
+  end
+
+  get 'user/:id', to: 'users#show', as: 'user'
+
+  ####
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

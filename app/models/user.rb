@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   has_one :farmer
+  has_many :messages
 
   ###
 
@@ -25,4 +26,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
+
+  scope :all_except, ->(user) { where.not(id: user) }
+  after_create_commit { broadcast_append_to "users" }
+
 end
