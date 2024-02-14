@@ -53,6 +53,15 @@ gem "mailcatcher"
 # Devise
 gem "devise", "~> 4.9"
 
+# Stripe
+gem "stripe"
+
+# Payify for stripe
+gem "payify"
+
+# Dotenv
+gem 'dotenv-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mswin mswin64 mingw x64_mingw ]

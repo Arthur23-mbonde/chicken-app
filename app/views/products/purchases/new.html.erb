@@ -1,0 +1,5 @@
+<div class="w-full" data-controller="stripe-checkout"
+    data-stripe-checkout-publishable-key-value="<%= Rails.application.credentials.dig(:stripe, :pk) %>"
+    data-stripe-checkout-url-value="<%= product_stripe_checkouts_path(@product) %>">
+
+</div>
