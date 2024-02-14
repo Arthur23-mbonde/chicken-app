@@ -4,10 +4,21 @@ Rails.application.routes.draw do
   post 'cart/add'
   post 'cart/remove'
 
-  resources :products
+  resources :products do
+    scope module: :products do
+      resources :purchases, only: [:new] do
+        get :success, on: :collection
+      end
+      resources :payments do
+        get :success, on: :collection
+        get :cancel, on: :collection
+      end
+      resources :stripe_checkouts, only: [:create]
+    end
+  end
+
   resources :categories
   resources :races
-
   resources :farmers
 
   devise_for :users
