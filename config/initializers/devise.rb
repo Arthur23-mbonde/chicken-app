@@ -38,7 +38,10 @@ Devise.setup do |config|
 
   #### Configuration for turbochat
   # ==> Configure the parent class to the devise controllers.
-  config.parent_controller = 'TurboDeviseController'
+  #config.parent_controller = 'TurboDeviseController'
+
+  #! Change parent controller with custom controller
+  #config.parent_controller = 'Users::DeviseController'
 
   # ==> Navigation configuration
   config.navigational_formats = ['*/*', :html, :turbo_stream]
