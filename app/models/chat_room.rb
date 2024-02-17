@@ -18,5 +18,8 @@ class ChatRoom < ApplicationRecord
     end
     single_chat_room
   end
+  validates_uniqueness_of :name
+  scope :public_chat_rooms, -> { where(is_private: false) }
+  after_create_commit { broadcast_append_to "chat_rooms" }
 
 end

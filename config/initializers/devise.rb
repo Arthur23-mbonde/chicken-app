@@ -43,6 +43,8 @@ Devise.setup do |config|
   #! Change parent controller with custom controller
   #config.parent_controller = 'Users::DeviseController'
 
+  config.parent_controller = 'TurboDeviseController'
+
   # ==> Navigation configuration
   config.navigational_formats = ['*/*', :html, :turbo_stream]
 

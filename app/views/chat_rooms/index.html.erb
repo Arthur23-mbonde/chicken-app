@@ -19,6 +19,9 @@
                 <h4 class="text-center"><%= @user&.first_name || @single_chat_room.name %></h4>
                 <%= turbo_stream_from @single_chat_room %>
                 <div id="messages" data-controller="scroll">
+                <h4 class="text-center"><%= @user&.name || @single_chat_room.name %></h4>
+                <%= turbo_stream_from @single_chat_room %>
+                <div id="messages">
                     <%= render @messages %>
                 </div>
                 <%= render 'layouts/new_message_form' %>
