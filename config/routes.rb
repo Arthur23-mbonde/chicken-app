@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   get 'chat_rooms/index'
 
   get 'cart', to: 'cart#show'
